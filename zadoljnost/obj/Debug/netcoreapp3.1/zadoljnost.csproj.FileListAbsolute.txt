@@ -1,0 +1,13 @@
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.AssemblyInfo.cs
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\bin\Debug\netcoreapp3.1\zadoljnost.exe
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\bin\Debug\netcoreapp3.1\zadoljnost.deps.json
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\bin\Debug\netcoreapp3.1\zadoljnost.runtimeconfig.json
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\bin\Debug\netcoreapp3.1\zadoljnost.runtimeconfig.dev.json
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\bin\Debug\netcoreapp3.1\zadoljnost.dll
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\bin\Debug\netcoreapp3.1\zadoljnost.pdb
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.dll
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.pdb
+C:\Users\admin\source\repos\zadoljnost\zadoljnost\obj\Debug\netcoreapp3.1\zadoljnost.genruntimeconfig.cache
