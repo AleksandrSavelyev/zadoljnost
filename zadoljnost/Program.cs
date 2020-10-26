@@ -19,7 +19,6 @@ namespace zadoljnost
             ArrayList clientList = new ArrayList();
             Client client = new Client();
             string pathFile = @"D:\client\debit.txt";
-            FileInfo file = new FileInfo(pathFile);
             int count = 0;
 
 
@@ -38,8 +37,10 @@ namespace zadoljnost
             {
                 Console.WriteLine(ex);
             }
+            Console.WriteLine($"файл был успешно создан по пути {pathFile}");
             using (StreamReader sr = new StreamReader(pathFile))
             {
+                int j = 0;
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -50,13 +51,13 @@ namespace zadoljnost
                         
                     }
                 }
-                for(int i=0;i<clientList.Count;i++)
+                for(int i=0;i<list.Count;i++)
                 {
-                    client = (Client)clientList[i];
                     if (count == 0)
                     {
-                        Client clt = new Client();
-                        client = clt;
+                        Client cli = new Client();
+                        clientList.Add(cli);
+                        client = (Client)clientList[j];
                         client.ClientID = Convert.ToString(list[i]);
                         count = +1;
                         
@@ -71,55 +72,89 @@ namespace zadoljnost
                     else if(count==2)
                     {
                         client.ClientDebit = Convert.ToDouble(list[i]);
-                        clientList.Add(client);
                         count = 0;
-                        
+                        j = j + 1;
                     }
                     
                 }
+                Console.WriteLine("содержимое файла");
                 for (int i = 0; i < clientList.Count; i++)
                 {
-                    Client cli = (Client)clientList[i];
-                    cli.GetInfo();
+                    client = (Client)clientList[i];
+                    client.GetInfo();
                 }
             }
-            double changeSum =Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("введите сумму на которую хотите уменьшит сумму долга всех клиентов");
+            double changeSum =NumChek();
             for(int i=0;i<clientList.Count;i++)
             {
                 client = (Client)clientList[i];
-                client.ClientDebit = client.ClientDebit - changeSum;
-                clientList.Add(client);
+                client.ClientDebit = client.ClientDebit-changeSum;
+                client.GetInfo();
             }
-            for (int i = 0; i < clientList.Count; i++)
+            int k = 0;
+            for (int i = 0; i < list.Count; i++)
             {
-                for (int j = 0; j < list.Count; j++)
-                {
+                
                     if (count == 0)
                     {
-                        client = (Client)clientList[i];
-                        list[j] = client.ClientID;
+                        client = (Client)clientList[k];
+                        list[i]=client.ClientID;
                         count = count + 1;
+                        
                     }
                     else if (count == 1)
                     {
-                        list[j] = client.ClientDoc;
+                        list[i]=client.ClientDoc;
                         count = count + 1;
+                        
                     }
                     else if (count == 2)
                     {
-                        list[j] = client.ClientDebit;
+                        list[i]=Convert.ToString(client.ClientDebit);
                         count = 0;
+                        k++;
                     }
-                }
+                
             }
             using (StreamWriter sw = new StreamWriter(pathFile, false, System.Text.Encoding.Default))
             {
 
                 for(int i=0;i<list.Count;i++)
                 {
-                    sw.WriteLine($"{list[i]};");
+                    if(count==0)
+                    {
+                        sw.Write($"{list[i]};");
+                        count = count + 1;
+                    }
+                    else if (count == 1)
+                    {
+                        sw.Write($"{list[i]};");
+                        count = count + 1;
+                    }
+                    else if (count == 2)
+                    {
+                        sw.WriteLine($"{list[i]};");
+                        count = 0;
+                    }
                 }
-
+            }
+            Console.WriteLine("все данные перезаписанны");
+            Console.ReadKey();
+        }
+        static double NumChek()
+        {
+            for(; ; )
+            {
+                try
+                {
+                    double num = Convert.ToDouble(Console.ReadLine());
+                    return num;
+                }
+                catch
+                {
+                    Console.WriteLine("не верные данные повторите ввод");
+                }
             }
         }
     }
